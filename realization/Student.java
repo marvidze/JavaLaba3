@@ -62,7 +62,9 @@ public class Student {
 
     /**
      * Метод возвращает список студентов с максимальным средним баллом
-     * @return ArrayList<Student> studentsWithMaxScore - Список студентов с максимальным средним баллом
+     * 
+     * @return ArrayList<Student> studentsWithMaxScore - Список студентов с
+     *         максимальным средним баллом
      */
     public static ArrayList<Student> findHightScoreStudent() {
         double maxScore = 0;
@@ -80,10 +82,11 @@ public class Student {
 
     /**
      * Метод возвращает количество студентов с посещаемостью меньше среднего
-     * @return int countStudentWithLowAttendance - Количество студентов с посещаемостью меньше среднего
+     * 
+     * @return int countStudentWithLowAttendance - Количество студентов с
+     *         посещаемостью меньше среднего
      */
-    public static int countStudentWithLowAttendance()
-    {
+    public static int countStudentWithLowAttendance() {
         if (_studentList.size() == 0) {
             throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
         }
@@ -108,11 +111,11 @@ public class Student {
 
     /**
      * Метод предназначен для добавления в список студентов
+     * 
      * @param student Объект класса Student
      * @return int - возвращет 1 в случае ошибки и 0 если метод отработал успешно
      */
-    public static int addToStudentList(Student student)
-    {
+    public static int addToStudentList(Student student) {
         try {
             _studentList.add(student);
         } catch (Exception e) {
@@ -137,13 +140,9 @@ public class Student {
      * @param FIO принимает строку ФИО. Пример: "Иванов Иван Иванович".
      * @return возращает найденного студента(объект).
      */
+
     public static Student findStudent(String FIO) {
         final String[] arrayFIO = FIO.split(" ");
-        return arrayFIO;
-    }
-
-    public static Student findStudent(int id) {
-
         for (Student student : _studentList) {
             if (student._firstName.equals(arrayFIO[1])
                     && student._lastName.equals(arrayFIO[0])
