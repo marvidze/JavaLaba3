@@ -6,5 +6,3 @@ public class Laba_3 {
 
     }
 }
-
-//
