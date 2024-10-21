@@ -53,8 +53,7 @@ public class Student {
         return studentsWithMaxScore;
     }
 
-    public static double countStudentWithLowAttendance()
-    {
+    public static double countStudentWithLowAttendance() {
         if (_studentList.size() == 0) {
             throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
         }
@@ -65,7 +64,7 @@ public class Student {
         for (Student student : _studentList) {
             averageAttendance += student._attendance;
         }
-        
+
         averageAttendance /= _studentList.size();
 
         for (Student student : _studentList) {
@@ -77,8 +76,7 @@ public class Student {
         return countStudentWithLowAttendance;
     }
 
-    public static int addToStudentList(Student student)
-    {
+    public static int addToStudentList(Student student) {
         try {
             _studentList.add(student);
         } catch (Exception e) {
@@ -89,24 +87,29 @@ public class Student {
     }
 
     @Override
-    public String toString()
-    {
-        return "ID Студента: " + this._ID + 
-            " | Имя: " + this._firstName + 
-            " | Фамилия: " + this._lastName + 
-            " | Отчество: " + this._patronymic + 
-            " | Успеваемость: " + this._attendance + 
-            " | Средний балл: " + this._averageScore + "\n";
-    }    
-  
-    public static Student findStudent(int id) {
+    public String toString() {
+        return "ID Студента: " + this._ID +
+                " | Имя: " + this._firstName +
+                " | Фамилия: " + this._lastName +
+                " | Отчество: " + this._patronymic +
+                " | Успеваемость: " + this._attendance +
+                " | Средний балл: " + this._averageScore + "\n";
+    }
 
+    /**
+     * 
+     * @param FIO принимает строку ФИО. Пример: "Иванов Иван Иванович".
+     * @return возращает найденного студента(объект).
+     */
+    public static Student findStudent(String FIO) {
+        final String[] arrayFIO = FIO.split(" ");
         for (Student student : _studentList) {
-            if (student._ID == id) {
+            if (student._firstName.equals(arrayFIO[1])
+                    && student._lastName.equals(arrayFIO[0])
+                    && student._patronymic.equals(arrayFIO[2])) {
                 return student;
             }
         }
         return new Student();
     }
-
 }
