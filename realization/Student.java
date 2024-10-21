@@ -53,6 +53,30 @@ public class Student {
         return studentsWithMaxScore;
     }
 
+    public static double countStudentWithLowAttendance()
+    {
+        if (_studentList.size() == 0) {
+            throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
+        }
+        
+        int countStudentWithLowAttendance = 0;
+        double averageAttendance = 0;
+
+        for (Student student : _studentList) {
+            averageAttendance += student._attendance;
+        }
+        
+        averageAttendance /= _studentList.size();
+
+        for (Student student : _studentList) {
+            if (student._attendance < averageAttendance) {
+                countStudentWithLowAttendance += 1;
+            }
+        }
+
+        return countStudentWithLowAttendance;
+    }
+
     @Override
     public String toString()
     {
