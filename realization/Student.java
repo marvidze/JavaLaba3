@@ -60,6 +60,10 @@ public class Student {
         return _lastName + " " + _firstName + " " + _patronymic;
     }
 
+    /**
+     * Метод возвращает список студентов с максимальным средним баллом
+     * @return ArrayList<Student> studentsWithMaxScore - Список студентов с максимальным средним баллом
+     */
     public static ArrayList<Student> findHightScoreStudent() {
         double maxScore = 0;
         ArrayList<Student> studentsWithMaxScore = new ArrayList<>();
@@ -74,7 +78,12 @@ public class Student {
         return studentsWithMaxScore;
     }
 
-    public static double countStudentWithLowAttendance() {
+    /**
+     * Метод возвращает количество студентов с посещаемостью меньше среднего
+     * @return int countStudentWithLowAttendance - Количество студентов с посещаемостью меньше среднего
+     */
+    public static int countStudentWithLowAttendance()
+    {
         if (_studentList.size() == 0) {
             throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
         }
@@ -97,7 +106,13 @@ public class Student {
         return countStudentWithLowAttendance;
     }
 
-    public static int addToStudentList(Student student) {
+    /**
+     * Метод предназначен для добавления в список студентов
+     * @param student Объект класса Student
+     * @return int - возвращет 1 в случае ошибки и 0 если метод отработал успешно
+     */
+    public static int addToStudentList(Student student)
+    {
         try {
             _studentList.add(student);
         } catch (Exception e) {
