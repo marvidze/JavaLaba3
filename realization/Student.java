@@ -58,7 +58,7 @@ public class Student {
         if (_studentList.size() == 0) {
             throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
         }
-        
+
         int countStudentWithLowAttendance = 0;
         double averageAttendance = 0;
 
@@ -75,6 +75,17 @@ public class Student {
         }
 
         return countStudentWithLowAttendance;
+    }
+
+    public static int addToStudentList(Student student)
+    {
+        try {
+            _studentList.add(student);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 1;
+        }
+        return 0;
     }
 
     @Override
