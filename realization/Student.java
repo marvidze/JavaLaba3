@@ -39,10 +39,12 @@ public class Student {
         return _lastName + " " + _firstName + " " + _patronymic;
     }
 
-    public static Student findStudent(int id) {
-
+    public static Student findStudent(String FIO) {
+        final String[] arrayFIO = FIO.split(" ");
         for (Student student : _studentList) {
-            if (student._ID == id) {
+            if (student._firstName.equals(arrayFIO[1])
+                    && student._lastName.equals(arrayFIO[0])
+                    && student._patronymic.equals(arrayFIO[2])) {
                 return student;
             }
         }
