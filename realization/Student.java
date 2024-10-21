@@ -98,4 +98,15 @@ public class Student {
             " | Успеваемость: " + this._attendance + 
             " | Средний балл: " + this._averageScore + "\n";
     }    
+  
+    public static Student findStudent(int id) {
+
+        for (Student student : _studentList) {
+            if (student._ID == id) {
+                return student;
+            }
+        }
+        return new Student();
+    }
+
 }
