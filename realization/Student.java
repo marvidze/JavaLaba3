@@ -39,6 +39,66 @@ public class Student {
         return _lastName + " " + _firstName + " " + _patronymic;
     }
 
+    public static ArrayList<Student> findHightScoreStudent() {
+        double maxScore = 0;
+        ArrayList<Student> studentsWithMaxScore = new ArrayList<>();
+
+        for (Student student : _studentList) {
+            if (student._averageScore > maxScore) {
+                maxScore = student._averageScore;
+                studentsWithMaxScore.add(student);
+            }
+        }
+
+        return studentsWithMaxScore;
+    }
+
+    public static double countStudentWithLowAttendance()
+    {
+        if (_studentList.size() == 0) {
+            throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
+        }
+
+        int countStudentWithLowAttendance = 0;
+        double averageAttendance = 0;
+
+        for (Student student : _studentList) {
+            averageAttendance += student._attendance;
+        }
+        
+        averageAttendance /= _studentList.size();
+
+        for (Student student : _studentList) {
+            if (student._attendance < averageAttendance) {
+                countStudentWithLowAttendance += 1;
+            }
+        }
+
+        return countStudentWithLowAttendance;
+    }
+
+    public static int addToStudentList(Student student)
+    {
+        try {
+            _studentList.add(student);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ID Студента: " + this._ID + 
+            " | Имя: " + this._firstName + 
+            " | Фамилия: " + this._lastName + 
+            " | Отчество: " + this._patronymic + 
+            " | Успеваемость: " + this._attendance + 
+            " | Средний балл: " + this._averageScore + "\n";
+    }    
+  
     public static Student findStudent(int id) {
 
         for (Student student : _studentList) {
@@ -48,4 +108,5 @@ public class Student {
         }
         return new Student();
     }
+
 }
