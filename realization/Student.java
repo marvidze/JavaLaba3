@@ -17,6 +17,15 @@ public class Student {
             new Student("Аюпов", "Марат", "Рашитович", 4, 4.7),
             new Student("Клипиков", "Никита", "Валерьевич", 2, 2)));
 
+    /**
+     * Конструктор класса Student
+     * 
+     * @param lastName     имя
+     * @param firstName    фамилия
+     * @param patronymic   отчество
+     * @param attendance   посещаемость
+     * @param averageScore средний балл
+     */
     public Student(String lastName, String firstName, String patronymic, int attendance, double averageScore) {
         _countID++;
         _ID = _countID;
@@ -27,6 +36,14 @@ public class Student {
         _averageScore = averageScore;
     }
 
+    /**
+     * Конструктор по умолчанию класса Student |
+     * Имя - Иван |
+     * Фамилия - Иванов |
+     * Отчество - Иванович |
+     * Посещаемость - 1 |
+     * Средний балл - 2.1
+     */
     public Student() {
         _firstName = "Иван";
         _lastName = "Иванов";
@@ -35,6 +52,10 @@ public class Student {
         _averageScore = 2.1;
     };
 
+    /**
+     * 
+     * @return Строка фамилия_имя_отчество
+     */
     public String getFIO() {
         return _lastName + " " + _firstName + " " + _patronymic;
     }
@@ -53,8 +74,7 @@ public class Student {
         return studentsWithMaxScore;
     }
 
-    public static double countStudentWithLowAttendance()
-    {
+    public static double countStudentWithLowAttendance() {
         if (_studentList.size() == 0) {
             throw new ArithmeticException("Студенты не найдены в списке, количество студентов - 0");
         }
@@ -65,7 +85,7 @@ public class Student {
         for (Student student : _studentList) {
             averageAttendance += student._attendance;
         }
-        
+
         averageAttendance /= _studentList.size();
 
         for (Student student : _studentList) {
@@ -77,8 +97,7 @@ public class Student {
         return countStudentWithLowAttendance;
     }
 
-    public static int addToStudentList(Student student)
-    {
+    public static int addToStudentList(Student student) {
         try {
             _studentList.add(student);
         } catch (Exception e) {
@@ -89,16 +108,15 @@ public class Student {
     }
 
     @Override
-    public String toString()
-    {
-        return "ID Студента: " + this._ID + 
-            " | Имя: " + this._firstName + 
-            " | Фамилия: " + this._lastName + 
-            " | Отчество: " + this._patronymic + 
-            " | Успеваемость: " + this._attendance + 
-            " | Средний балл: " + this._averageScore + "\n";
-    }    
-  
+    public String toString() {
+        return "ID Студента: " + this._ID +
+                " | Имя: " + this._firstName +
+                " | Фамилия: " + this._lastName +
+                " | Отчество: " + this._patronymic +
+                " | Успеваемость: " + this._attendance +
+                " | Средний балл: " + this._averageScore + "\n";
+    }
+
     public static Student findStudent(int id) {
 
         for (Student student : _studentList) {

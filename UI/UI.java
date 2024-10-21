@@ -10,7 +10,7 @@ public class UI {
     public UI() {
     };
 
-    /***
+    /**
      * Считывает строку, введённную пользователем
      * 
      * @return String str – строка, введённая пользователем
@@ -23,6 +23,9 @@ public class UI {
         return str;
     }
 
+    /**
+     * Выводит на консоль студента(ов) с наивысшим средним баллом
+     */
     public void printHigthScoreStudent() {
         // ArrayList<Student> studentlist = Student.findHightScoreStudent();
         // for (Student student : studentlist) {
@@ -30,15 +33,24 @@ public class UI {
         // }
     }
 
+    /**
+     * Выводит на консоль студента(ов) с посещаемостью ниже среднего
+     */
     public void printCoutStudentWithLowAttendence() {
         // System.out.println("Студентов с посещаемостью ниже среднего -> " +
         // Student.coutStudentWithLowAttendence() + "\n");
     }
 
+    /**
+     * Выводит на консоль список студентов
+     */
     public void printStudentList() {
         System.out.println("Список студентов");
     }
 
+    /**
+     * Выводит на консоль меню управления программой
+     */
     public void run() {
         boolean flag = true;
         while (flag == true) {
