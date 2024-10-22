@@ -13,9 +13,9 @@ public class Student {
     private int _attendance;
     private double _averageScore;
     private static ArrayList<Student> _studentList = new ArrayList<>(List.of(
-            new Student("Ипатов", "Владислав", "Михайлович", 4, 4.5),
-            new Student("Аюпов", "Марат", "Рашитович", 4, 4.7),
-            new Student("Клипиков", "Никита", "Валерьевич", 2, 2)));
+            new Student("Ipatov", "Vladislav", "Mihailovich", 4, 4.5),
+            new Student("Ayupov", "Marat", "Rashitovich", 4, 4.7),
+            new Student("Klipikov", "Nikita", "Valerievich", 2, 2)));
 
     /**
      * Конструктор класса Student
@@ -136,9 +136,11 @@ public class Student {
     }
 
     /**
+     * Ищет студента в списке студентов по ФИО
      * 
      * @param FIO принимает строку ФИО. Пример: "Иванов Иван Иванович".
-     * @return возращает найденного студента(объект).
+     * @return возращает найденного студента(объект) или null если студент не
+     *         найден.
      */
 
     public static Student findStudent(String FIO) {
@@ -150,6 +152,18 @@ public class Student {
                 return student;
             }
         }
-        return new Student();
+        return null;
+    }
+
+    public void set_firstName(String _firstName) {
+        this._firstName = _firstName;
+    }
+
+    public void set_lastName(String _lastName) {
+        this._lastName = _lastName;
+    }
+
+    public void set_patronymic(String _patronymic) {
+        this._patronymic = _patronymic;
     }
 }
