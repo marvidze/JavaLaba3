@@ -29,18 +29,18 @@ public class UI {
      * Выводит на консоль студента(ов) с наивысшим средним баллом
      */
     public void printHigthScoreStudent() {
-        // ArrayList<Student> studentlist = Student.findHightScoreStudent();
-        // for (Student student : studentlist) {
-        // System.out.println(student);
-        // }
+        ArrayList<Student> studentlist = Student.findHightScoreStudent();
+        for (Student student : studentlist) {
+            System.out.println(student);
+        }
     }
 
     /**
      * Выводит на консоль студента(ов) с посещаемостью ниже среднего
      */
     public void printCoutStudentWithLowAttendence() {
-        // System.out.println("Студентов с посещаемостью ниже среднего -> " +
-        // Student.coutStudentWithLowAttendence() + "\n");
+        System.out.println("Студентов с посещаемостью ниже среднего -> " +
+                Student.countStudentWithLowAttendance() + "\n");
     }
 
     /**
@@ -102,7 +102,6 @@ public class UI {
                     break;
             }
         }
-
     }
 
     /**
