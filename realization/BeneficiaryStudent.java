@@ -15,8 +15,6 @@ public class BeneficiaryStudent extends Student {
      */
     public BeneficiaryStudent(String firstName, String lastName, String patronymic, int attendance,
             int averageScore, String preferentialGroup) {
-        _countID++;
-        _ID = _countID;
         _firstName = firstName;
         _lastName = lastName;
         _patronymic = patronymic;
@@ -41,5 +39,39 @@ public class BeneficiaryStudent extends Student {
         _attendance = 1;
         _averageScore = 2.1;
         _preferentialGroup = "СВО";
+    }
+
+    @Override
+    public String toString() {
+        return " | Имя: " + this._firstName + "\n" +
+                " | Фамилия: " + this._lastName + "\n" +
+                " | Отчество: " + this._patronymic + "\n" +
+                " | Успеваемость: " + this._attendance + "\n" +
+                " | Средний балл: " + this._averageScore + "\n" +
+                " | Группа льготы: " + this._preferentialGroup + "\n";
+    }
+
+    public void set_firstName(String _firstName) {
+        this._firstName = _firstName;
+    }
+
+    public void set_lastName(String _lastName) {
+        this._lastName = _lastName;
+    }
+
+    public void set_patronymic(String _patronymic) {
+        this._patronymic = _patronymic;
+    }
+
+    public void set_attendance(int _attendance) {
+        this._attendance = _attendance;
+    }
+
+    public void set_averageScore(double _averageScore) {
+        this._averageScore = _averageScore;
+    }
+
+    public void set_preferentialGroup(String _preferentialGroup) {
+        this._preferentialGroup = _preferentialGroup;
     }
 }
