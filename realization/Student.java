@@ -54,7 +54,7 @@ public class Student {
 
     /**
      * 
-     * @return Строка фамилия_имя_отчество
+     * @return Строка "фамилия имя отчество"
      */
     public String getFIO() {
         return _lastName + " " + _firstName + " " + _patronymic;

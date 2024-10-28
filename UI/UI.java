@@ -1,7 +1,5 @@
 package UI;
 
-import java.net.Socket;
-import java.nio.channels.Pipe.SourceChannel;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +12,6 @@ public class UI {
 
     /**
      * Считывает строку, введённную пользователем
-     * 
      * @return String str – строка, введённая пользователем
      */
     static public String input() {
