@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Student {
 
-    static private int _countID = 0;
-    private int _ID;
-    private String _firstName;
-    private String _lastName;
-    private String _patronymic;
-    private int _attendance;
-    private double _averageScore;
-    private static ArrayList<Student> _studentList = new ArrayList<>(List.of(
-            new Student("Ipatov", "Vladislav", "Mihailovich", 4, 4.5),
+    static protected int _countID = 0;
+    protected int _ID;
+    protected String _firstName;
+    protected String _lastName;
+    protected String _patronymic;
+    protected int _attendance;
+    protected double _averageScore;
+    protected static ArrayList<Student> _studentList = new ArrayList<>(List.of(
+            new ForMoneyStudent("Ipatov", "Vladislav", "Mihailovich", 4, 4.5, 100000),
             new Student("Ayupov", "Marat", "Rashitovich", 4, 4.7),
             new Student("Klipikov", "Nikita", "Valerievich", 2, 2)));
 
