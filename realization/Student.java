@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Student {
 
-    static private int _countID = 0;
-    private int _ID;
-    private String _firstName;
-    private String _lastName;
-    private String _patronymic;
-    private int _attendance;
-    private double _averageScore;
-    private static ArrayList<Student> _studentList = new ArrayList<>(List.of(
-            new Student("Ипатов", "Владислав", "Михайлович", 4, 4.5),
-            new Student("Аюпов", "Марат", "Рашитович", 4, 4.7),
-            new Student("Клипиков", "Никита", "Валерьевич", 2, 2)));
+    static protected int _countID = 0;
+    protected int _ID;
+    protected String _firstName;
+    protected String _lastName;
+    protected String _patronymic;
+    protected int _attendance;
+    protected double _averageScore;
+    protected static ArrayList<Student> _studentList = new ArrayList<>(List.of(
+            new ForMoneyStudent("Ipatov", "Vladislav", "Mihailovich", 4, 4.5, 100000),
+            new Student("Ayupov", "Marat", "Rashitovich", 4, 4.7),
+            new Student("Klipikov", "Nikita", "Valerievich", 2, 2)));
 
     /**
      * Конструктор класса Student
@@ -54,7 +54,7 @@ public class Student {
 
     /**
      * 
-     * @return Строка фамилия_имя_отчество
+     * @return Строка "фамилия имя отчество"
      */
     public String getFIO() {
         return _lastName + " " + _firstName + " " + _patronymic;
@@ -136,12 +136,15 @@ public class Student {
     }
 
     /**
+     * Ищет студента в списке студентов по ФИО
      * 
      * @param FIO принимает строку ФИО. Пример: "Иванов Иван Иванович".
-     * @return возращает найденного студента(объект).
+     * @return возращает найденного студента(объект) или null если студент не
+     *         найден.
      */
-    public static Student findStudent(int id) {
 
+    public static Student findStudent(String FIO) {
+        final String[] arrayFIO = FIO.split(" ");
         for (Student student : _studentList) {
             if (student._firstName.equals(arrayFIO[1])
                     && student._lastName.equals(arrayFIO[0])
@@ -149,6 +152,18 @@ public class Student {
                     return student;
             }
         }
-        return new Student();
+        return null;
+    }
+
+    public void set_firstName(String _firstName) {
+        this._firstName = _firstName;
+    }
+
+    public void set_lastName(String _lastName) {
+        this._lastName = _lastName;
+    }
+
+    public void set_patronymic(String _patronymic) {
+        this._patronymic = _patronymic;
     }
 }
