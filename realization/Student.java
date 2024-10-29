@@ -6,7 +6,7 @@ import java.util.List;
 
 import realization.Interfaces.IStudent;
 
-public class Student implements IStudent{
+public class Student implements IStudent, Comparable<Student>{
 
     protected String _firstName;
     protected String _lastName;
@@ -67,17 +67,26 @@ public class Student implements IStudent{
      *         максимальным средним баллом
      */
     public static ArrayList<Student> findHightScoreStudent() {
-        double maxScore = 0;
+        double hightScore = getHightScoreStudent();
         ArrayList<Student> studentsWithMaxScore = new ArrayList<>();
 
         for (Student student : _studentList) {
-            if (student._averageScore > maxScore) {
-                maxScore = student._averageScore;
+            if (student._averageScore == hightScore) {
                 studentsWithMaxScore.add(student);
             }
         }
 
         return studentsWithMaxScore;
+    }
+
+    private static double getHightScoreStudent() {
+        double hightScore = 0;
+        for (Student student : _studentList) {
+            if (student._averageScore > hightScore) {
+                hightScore = student._averageScore;
+            }
+        }
+        return hightScore;
     }
 
     /**
