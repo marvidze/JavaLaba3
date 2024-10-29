@@ -15,8 +15,6 @@ public class ForMoneyStudent extends Student {
      */
     public ForMoneyStudent(String lastName, String firstName, String patronymic, int attendance, double averageScore,
             int priceStudy) {
-        _countID++;
-        _ID = _countID;
         _firstName = firstName;
         _lastName = lastName;
         _patronymic = patronymic;
@@ -43,11 +41,42 @@ public class ForMoneyStudent extends Student {
         _priceStudy = 0;
     }
 
-    public int get_priceStudy() {
-        return this._priceStudy;
+    @Override
+    public String toString() {
+        return " | Имя: " + this._firstName + "\n" +
+                " | Фамилия: " + this._lastName + "\n" +
+                " | Отчество: " + this._patronymic + "\n" +
+                " | Успеваемость: " + this._attendance + "\n" +
+                " | Средний балл: " + this._averageScore + "\n" +
+                " | Цена обучения: " + this._priceStudy + "\n";
+    }
+
+    public void set_firstName(String _firstName) {
+        this._firstName = _firstName;
+    }
+
+    public void set_lastName(String _lastName) {
+        this._lastName = _lastName;
+    }
+
+    public void set_patronymic(String _patronymic) {
+        this._patronymic = _patronymic;
+    }
+
+    public void set_attendance(int _attendance) {
+        this._attendance = _attendance;
+    }
+
+    public void set_averageScore(double _averageScore) {
+        this._averageScore = _averageScore;
     }
 
     public void set_priceStudy(int _priceStudy) {
         this._priceStudy = _priceStudy;
     }
+
+    public int get_priceStudy() {
+        return this._priceStudy;
+    }
+
 }
