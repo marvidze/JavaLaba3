@@ -73,7 +73,6 @@ public class UI {
             ;
         } else if (Student.findStudent(FIO) instanceof ForMoneyStudent) {
             student = (ForMoneyStudent) Student.findStudent(FIO);
-            var i = student.get_priceStudy();
         } else if (Student.findStudent(FIO) instanceof BeneficiaryStudent) {
             student = (BeneficiaryStudent) Student.findStudent(FIO);
         } else {

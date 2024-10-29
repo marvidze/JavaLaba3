@@ -161,7 +161,7 @@ public class Student implements IStudent, Comparable<Student> {
     }
 
     /**
-     * сортирует массив студентов по фамилиям.
+     * Сортирует массив студентов по фамилиям.
      */
     public static void sortArrayStudents() {
         java.util.Collections.sort(_studentList);
