@@ -1,6 +1,5 @@
 package realization;
 
-
 public class ForMoneyStudent extends Student {
     private int _priceStudy;
 
@@ -16,11 +15,7 @@ public class ForMoneyStudent extends Student {
      */
     public ForMoneyStudent(String lastName, String firstName, String patronymic, int attendance, double averageScore,
             int priceStudy) {
-        _firstName = firstName;
-        _lastName = lastName;
-        _patronymic = patronymic;
-        _attendance = attendance;
-        _averageScore = averageScore;
+        super(lastName, firstName, patronymic, attendance, averageScore);
         _priceStudy = priceStudy;
     }
 
@@ -29,27 +24,18 @@ public class ForMoneyStudent extends Student {
      * Имя - Иван |
      * Фамилия - Иванов |
      * Отчество - Иванович |
-     * Посещаемость - 1 |
-     * Средний балл - 2.1 |
+     * Посещаемость -0 |
+     * Средний балл - 0 |
      * Цена обучения - 0
      */
     public ForMoneyStudent() {
-        _firstName = "Иван";
-        _lastName = "Иванов";
-        _patronymic = "Иванович";
-        _attendance = 1;
-        _averageScore = 2.1;
+        super("Ivanov", "Ivan", "Ivanovich", 0, 0);
         _priceStudy = 0;
     }
 
     @Override
-    public String toString() {
-        return " | Имя: " + this._firstName + "\n" +
-                " | Фамилия: " + this._lastName + "\n" +
-                " | Отчество: " + this._patronymic + "\n" +
-                " | Успеваемость: " + this._attendance + "\n" +
-                " | Средний балл: " + this._averageScore + "\n" +
-                " | Цена обучения: " + this._priceStudy + "\n";
+    public String getInfoString() {
+        return super.getInfoString() + " | Цена обучения: " + this._priceStudy + "\n";
     }
 
     public void set_firstName(String _firstName) {

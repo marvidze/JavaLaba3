@@ -1,7 +1,6 @@
 package realization;
 
-
-public class BeneficiaryStudent extends Student{
+public class BeneficiaryStudent extends Student {
     private String _preferentialGroup;
 
     /**
@@ -16,11 +15,7 @@ public class BeneficiaryStudent extends Student{
      */
     public BeneficiaryStudent(String lastName, String firstName, String patronymic, int attendance,
             int averageScore, String preferentialGroup) {
-        _firstName = firstName;
-        _lastName = lastName;
-        _patronymic = patronymic;
-        _attendance = attendance;
-        _averageScore = averageScore;
+        super(lastName, firstName, patronymic, attendance, averageScore);
         _preferentialGroup = preferentialGroup;
     }
 
@@ -29,28 +24,19 @@ public class BeneficiaryStudent extends Student{
      * Имя - Иван |
      * Фамилия - Иванов |
      * Отчество - Иванович |
-     * Посещаемость - 1 |
-     * Средний балл - 2.1 |
+     * Посещаемость - 0 |
+     * Средний балл - 0 |
      * Группа льготников - СВО
      */
 
     public BeneficiaryStudent() {
-        _firstName = "Иван";
-        _lastName = "Иванов";
-        _patronymic = "Иванович";
-        _attendance = 1;
-        _averageScore = 2.1;
+        super("Ivanov", "Ivan", "Ivanovich", 0, 0);
         _preferentialGroup = "СВО";
     }
 
     @Override
-    public String toString() {
-        return " | Имя: " + this._firstName + "\n" +
-                " | Фамилия: " + this._lastName + "\n" +
-                " | Отчество: " + this._patronymic + "\n" +
-                " | Успеваемость: " + this._attendance + "\n" +
-                " | Средний балл: " + this._averageScore + "\n" +
-                " | Группа льготы: " + this._preferentialGroup + "\n";
+    public String getInfoString() {
+        return super.getInfoString() + " | Группа льготы: " + this._preferentialGroup + "\n";
     }
 
     public void set_firstName(String _firstName) {

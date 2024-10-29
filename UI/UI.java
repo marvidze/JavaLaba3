@@ -5,7 +5,6 @@ import java.util.Scanner;
 import realization.BeneficiaryStudent;
 import realization.ForMoneyStudent;
 import realization.Student;
-import realization.Interfaces.IStudent;
 
 public class UI {
 
@@ -31,7 +30,7 @@ public class UI {
     private void printHigthScoreStudent() {
         ArrayList<Student> studentlist = Student.findHightScoreStudent();
         for (Student student : studentlist) {
-            System.out.println(student);
+            System.out.println(student.getInfoString());
         }
     }
 
@@ -50,7 +49,7 @@ public class UI {
         System.out.println("Список студентов");
         ArrayList<Student> studentlist = Student.get_studentList();
         for (Student student : studentlist) {
-            System.out.println(student);
+            System.out.println(student.getInfoString());
         }
     }
 
@@ -68,7 +67,7 @@ public class UI {
         boolean flag = true;
         System.out.println("Введите фио студента");
         String FIO = input();
-        IStudent student = Student.findStudent(FIO);
+        Student student = Student.findStudent(FIO);
         if (Student.findStudent(FIO) instanceof Student) {
             ;
         } else if (Student.findStudent(FIO) instanceof ForMoneyStudent) {
@@ -104,44 +103,44 @@ public class UI {
                     System.out.println("Введите фамилию");
                     String lastName = input();
                     student.set_lastName(lastName);
-                    System.out.println("Студент после изменений -> " + student);
+                    System.out.println("Студент после изменений -> \n" + student.getInfoString());
                     break;
                 case "2":
                     System.out.println("Введите имя");
                     String firstName = input();
                     student.set_firstName(firstName);
-                    System.out.println("Студент после изменений -> " + student);
+                    System.out.println("Студент после изменений -> \n" + student.getInfoString());
                     break;
                 case "3":
                     System.out.println("Введите отчество");
                     String patronymic = input();
                     student.set_patronymic(patronymic);
-                    System.out.println("Студент после изменений -> " + student);
+                    System.out.println("Студент после изменений -> \n" + student.getInfoString());
                     break;
                 case "4":
                     System.out.println("Введите значение успеваемости");
                     int averageScore = Integer.parseInt(input());
                     student.set_averageScore(averageScore);
-                    System.out.println("Студент после изменений -> " + student);
+                    System.out.println("Студент после изменений -> \n" + student.getInfoString());
                     break;
                 case "5":
                     System.out.println("Введите значение посещения");
                     int attendance = Integer.parseInt(input());
                     student.set_attendance(attendance);
-                    System.out.println("Студент после изменений -> " + student);
+                    System.out.println("Студент после изменений -> \n" + student.getInfoString());
                     break;
                 case "6":
                     if (student instanceof ForMoneyStudent) {
                         System.out.println("Введите значение цены");
                         int priceStudy = Integer.parseInt(input());
                         ((ForMoneyStudent) student).set_priceStudy(priceStudy);
-                        System.out.println("Студент после изменений -> " + student);
+                        System.out.println("Студент после изменений -> \n" + student.getInfoString());
                         break;
                     } else if (student instanceof BeneficiaryStudent) {
                         System.out.println("Введите тип льготы");
                         String preferentialGroup = input();
                         ((BeneficiaryStudent) student).set_preferentialGroup(preferentialGroup);
-                        System.out.println("Студент после изменений -> " + student);
+                        System.out.println("Студент после изменений -> \n" + student.getInfoString());
                         break;
                     } else {
                         System.out.println("Введите НОМЕР пункта меню \n");

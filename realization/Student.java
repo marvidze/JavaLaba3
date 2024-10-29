@@ -3,9 +3,7 @@ package realization;
 import java.util.ArrayList;
 import java.util.List;
 
-import realization.Interfaces.IStudent;
-
-public class Student implements IStudent, Comparable<Student> {
+public abstract class Student implements Comparable<Student> {
 
     protected String _firstName;
     protected String _lastName;
@@ -14,7 +12,7 @@ public class Student implements IStudent, Comparable<Student> {
     protected double _averageScore;
     protected static ArrayList<Student> _studentList = new ArrayList<>(List.of(
             new ForMoneyStudent("Ipatov", "Vladislav", "Mihailovich", 4, 4.5, 100000),
-            new Student("Ayupov", "Marat", "Rashitovich", 4, 4.7),
+            new ForMoneyStudent("Ayupov", "Marat", "Rashitovich", 4, 4.7, 0),
             new BeneficiaryStudent("Klipikov", "Nikita", "Valerievich", 2, 2, "СВО")));
 
     /**
@@ -138,12 +136,11 @@ public class Student implements IStudent, Comparable<Student> {
         return 0;
     }
 
-    @Override
-    public String toString() {
+    public String getInfoString() {
         return " | Имя: " + this._firstName + "\n" +
                 " | Фамилия: " + this._lastName + "\n" +
                 " | Отчество: " + this._patronymic + "\n" +
-                " | Успеваемость: " + this._attendance + "\n" +
+                " | Посещаемость: " + this._attendance + "\n" +
                 " | Средний балл: " + this._averageScore + "\n";
     }
 
@@ -199,12 +196,6 @@ public class Student implements IStudent, Comparable<Student> {
 
     public void set_averageScore(double _averageScore) {
         this._averageScore = _averageScore;
-    }
-
-    @Override
-    public int get_priceStudy() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get_priceStudy'");
     }
 
     public String get_firstName() {
