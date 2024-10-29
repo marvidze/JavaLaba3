@@ -3,7 +3,6 @@ package realization;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import realization.Interfaces.IStudent;
 
 public class Student implements IStudent, Comparable<Student>{
@@ -136,10 +135,10 @@ public class Student implements IStudent, Comparable<Student>{
 
     @Override
     public String toString() {
-        return " | Имя: " + this._firstName +
-                " | Фамилия: " + this._lastName +
-                " | Отчество: " + this._patronymic +
-                " | Успеваемость: " + this._attendance +
+        return " | Имя: " + this._firstName + "\n" +
+                " | Фамилия: " + this._lastName + "\n" +
+                " | Отчество: " + this._patronymic + "\n" +
+                " | Успеваемость: " + this._attendance + "\n" +
                 " | Средний балл: " + this._averageScore + "\n";
     }
 
@@ -199,7 +198,7 @@ public class Student implements IStudent, Comparable<Student>{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get_priceStudy'");
     }
-    
+
     public String get_firstName() {
         return _firstName;
     }

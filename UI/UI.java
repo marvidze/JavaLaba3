@@ -48,13 +48,16 @@ public class UI {
      */
     private void printStudentList() {
         System.out.println("Список студентов");
-        // Student.getStudentList
+        ArrayList<Student> studentlist = Student.get_studentList();
+        for (Student student : studentlist) {
+            System.out.println(student);
+        }
     }
 
     private void printSortedStudentList() {
         System.out.println("Отсортированный список студентов : ");
-        // Student.sortStudentList
-        // printStudentList()
+        Student.sortArrayStudents();
+        printStudentList();
     }
 
     /**
@@ -69,10 +72,10 @@ public class UI {
         if (Student.findStudent(FIO) instanceof Student) {
             ;
         } else if (Student.findStudent(FIO) instanceof ForMoneyStudent) {
-            student = (ForMoneyStudent)Student.findStudent(FIO);
+            student = (ForMoneyStudent) Student.findStudent(FIO);
             var i = student.get_priceStudy();
         } else if (Student.findStudent(FIO) instanceof BeneficiaryStudent) {
-            student = (BeneficiaryStudent)Student.findStudent(FIO);
+            student = (BeneficiaryStudent) Student.findStudent(FIO);
         } else {
             System.out.println("Студент не найден");
             flag = false;
@@ -87,11 +90,11 @@ public class UI {
                             "5. Изменить посещаемость \n");
             if (student instanceof ForMoneyStudent) {
                 System.out.println(
-                        "6.1 Изменить цену обучения \n" +
+                        "6. Изменить цену обучения \n" +
                                 "7. Выход <-- \n");
             } else if (student instanceof BeneficiaryStudent) {
                 System.out.println(
-                        "6.2 Изменить группу льготы \n" +
+                        "6. Изменить группу льготы \n" +
                                 "7. Выход <-- \n");
             } else {
                 System.out.println("7. Выход <-- \n");
@@ -169,7 +172,7 @@ public class UI {
                     "3. Вывести список студентов \n" +
                     "4. Упорядочить список по именам \n" +
                     "5. Поиск по ФИО студента \n" +
-                    "6. ВЫХОД \n");
+                    "6. ВЫХОД");
             String number = input();
             switch (number) {
                 case "1":
