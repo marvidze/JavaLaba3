@@ -5,7 +5,7 @@ import java.util.List;
 
 import realization.Interfaces.IStudent;
 
-public class Student implements IStudent, Comparable<Student>{
+public class Student implements IStudent, Comparable<Student> {
 
     protected String _firstName;
     protected String _lastName;
@@ -78,6 +78,11 @@ public class Student implements IStudent, Comparable<Student>{
         return studentsWithMaxScore;
     }
 
+    /**
+     * Метод ищет максимальный балл среди студентов
+     * 
+     * @return hightScore - максимальный балл среди студентов
+     */
     private static double getHightScoreStudent() {
         double hightScore = 0;
         for (Student student : _studentList) {
