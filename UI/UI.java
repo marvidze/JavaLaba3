@@ -77,7 +77,7 @@ public class UI {
         } else if (Student.findStudent(FIO) instanceof BeneficiaryStudent) {
             student = (BeneficiaryStudent) Student.findStudent(FIO);
         } else {
-            System.out.println("Студент не найден");
+            System.out.println("Студент не найден \n");
             flag = false;
         }
         while (flag) {
