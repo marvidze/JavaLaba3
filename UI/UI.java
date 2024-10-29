@@ -16,7 +16,7 @@ public class UI {
      * 
      * @return String str – строка, введённая пользователем
      */
-    static public String input() {
+    static private String input() {
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
@@ -27,7 +27,7 @@ public class UI {
     /**
      * Выводит на консоль студента(ов) с наивысшим средним баллом
      */
-    public void printHigthScoreStudent() {
+    private void printHigthScoreStudent() {
         ArrayList<Student> studentlist = Student.findHightScoreStudent();
         for (Student student : studentlist) {
             System.out.println(student);
@@ -37,7 +37,7 @@ public class UI {
     /**
      * Выводит на консоль студента(ов) с посещаемостью ниже среднего
      */
-    public void printCoutStudentWithLowAttendence() {
+    private void printCoutStudentWithLowAttendence() {
         System.out.println("Студентов с посещаемостью ниже среднего -> " +
                 Student.countStudentWithLowAttendance() + "\n");
     }
@@ -45,12 +45,12 @@ public class UI {
     /**
      * Выводит на консоль список студентов
      */
-    public void printStudentList() {
+    private void printStudentList() {
         System.out.println("Список студентов");
         // Student.getStudentList
     }
 
-    public void printSortedStudentList() {
+    private void printSortedStudentList() {
         System.out.println("Отсортированный список студентов : ");
         // Student.sortStudentList
         // printStudentList()
@@ -60,7 +60,7 @@ public class UI {
      * Выводит на консоль меню где можно изменить данные студента и вызывает
      * определенные методы в зависимости от того что вводит пользователь
      */
-    public void searchStudent() {
+    private void searchStudent() {
         boolean flag = true;
         System.out.println("Введите фио студента");
         String FIO = input();
@@ -182,7 +182,7 @@ public class UI {
                     printSortedStudentList();
                     break;
                 case "5":
-                    searchStudent();
+                    // searchStudent();
                     break;
                 case "6":
                     flag = false;
