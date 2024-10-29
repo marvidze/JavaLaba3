@@ -79,7 +79,4 @@ public class ForMoneyStudent extends Student {
         return this._priceStudy;
     }
 
-    public void set_priceStudy(int _priceStudy) {
-        this._priceStudy = _priceStudy;
-    }
 }
