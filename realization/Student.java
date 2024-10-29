@@ -3,9 +3,11 @@ package realization;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import realization.Interfaces.IStudent;
 
 public class Student implements IStudent{
+
     protected String _firstName;
     protected String _lastName;
     protected String _patronymic;
@@ -151,8 +153,16 @@ public class Student implements IStudent{
         return null;
     }
 
-    public static Student sortArrayStudents() {
-        return null; // в разработке...
+    @Override
+    public int compareTo(Student o) {
+        return _lastName.compareTo(o._lastName);
+    }
+
+    /**
+     * сортирует массив студентов по фамилиям.
+     */
+    public static void sortArrayStudents() {
+        java.util.Collections.sort(_studentList);
     }
 
     public void set_firstName(String _firstName) {
@@ -179,5 +189,29 @@ public class Student implements IStudent{
     public int get_priceStudy() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get_priceStudy'");
+    }
+    
+    public String get_firstName() {
+        return _firstName;
+    }
+
+    public String get_lastName() {
+        return _lastName;
+    }
+
+    public String get_patronymic() {
+        return _patronymic;
+    }
+
+    public int get_attendance() {
+        return _attendance;
+    }
+
+    public double get_averageScore() {
+        return _averageScore;
+    }
+
+    public static ArrayList<Student> get_studentList() {
+        return _studentList;
     }
 }

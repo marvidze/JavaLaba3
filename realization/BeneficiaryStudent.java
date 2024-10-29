@@ -14,7 +14,7 @@ public class BeneficiaryStudent extends Student{
      * @param averageScore      средний балл
      * @param preferentialGroup группа льготников
      */
-    public BeneficiaryStudent(String firstName, String lastName, String patronymic, int attendance,
+    public BeneficiaryStudent(String lastName, String firstName, String patronymic, int attendance,
             int averageScore, String preferentialGroup) {
         _firstName = firstName;
         _lastName = lastName;
