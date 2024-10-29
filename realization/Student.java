@@ -142,12 +142,15 @@ public class Student implements IStudent, Comparable<Student> {
      */
     public static Student findStudent(String FIO) {
         final String[] arrayFIO = FIO.split(" ");
-        for (int i = 0; i < _studentList.size(); i++) {
-            if (_studentList.get(i)._firstName.equals(arrayFIO[1])
-                    && _studentList.get(i)._lastName.equals(arrayFIO[0])
-                    && _studentList.get(i)._patronymic.equals(arrayFIO[2])) {
-                return _studentList.get(i);
+        if (arrayFIO.length == 3) {
+            for (int i = 0; i < _studentList.size(); i++) {
+                if (_studentList.get(i)._firstName.equals(arrayFIO[1])
+                        && _studentList.get(i)._lastName.equals(arrayFIO[0])
+                        && _studentList.get(i)._patronymic.equals(arrayFIO[2])) {
+                    return _studentList.get(i);
+                }
             }
+            return null;
         }
         return null;
     }
