@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
-
-    static protected int _countID = 0;
-    protected int _ID;
     protected String _firstName;
     protected String _lastName;
     protected String _patronymic;
@@ -15,7 +12,7 @@ public class Student {
     protected static ArrayList<Student> _studentList = new ArrayList<>(List.of(
             new ForMoneyStudent("Ipatov", "Vladislav", "Mihailovich", 4, 4.5, 100000),
             new Student("Ayupov", "Marat", "Rashitovich", 4, 4.7),
-            new Student("Klipikov", "Nikita", "Valerievich", 2, 2)));
+            new BeneficiaryStudent("Klipikov", "Nikita", "Valerievich", 2, 2, "СВО")));
 
     /**
      * Конструктор класса Student
@@ -27,8 +24,6 @@ public class Student {
      * @param averageScore средний балл
      */
     public Student(String lastName, String firstName, String patronymic, int attendance, double averageScore) {
-        _countID++;
-        _ID = _countID;
         _firstName = firstName;
         _lastName = lastName;
         _patronymic = patronymic;
@@ -48,15 +43,16 @@ public class Student {
         _firstName = "Иван";
         _lastName = "Иванов";
         _patronymic = "Иванович";
-        _attendance = 1;
-        _averageScore = 2.1;
+        _attendance = 0;
+        _averageScore = 0;
     };
 
     /**
+     * Метод возвращает ФИО студента
      * 
      * @return Строка "фамилия имя отчество"
      */
-    public String getFIO() {
+    public String get_FIO() {
         return _lastName + " " + _firstName + " " + _patronymic;
     }
 
@@ -127,8 +123,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "ID Студента: " + this._ID +
-                " | Имя: " + this._firstName +
+        return " | Имя: " + this._firstName +
                 " | Фамилия: " + this._lastName +
                 " | Отчество: " + this._patronymic +
                 " | Успеваемость: " + this._attendance +
@@ -168,5 +163,13 @@ public class Student {
 
     public void set_patronymic(String _patronymic) {
         this._patronymic = _patronymic;
+    }
+
+    public void set_attendance(int _attendance) {
+        this._attendance = _attendance;
+    }
+
+    public void set_averageScore(double _averageScore) {
+        this._averageScore = _averageScore;
     }
 }
