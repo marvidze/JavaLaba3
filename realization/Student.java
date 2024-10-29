@@ -142,17 +142,20 @@ public class Student {
      * @return возращает найденного студента(объект) или null если студент не
      *         найден.
      */
-
     public static Student findStudent(String FIO) {
         final String[] arrayFIO = FIO.split(" ");
-        for (Student student : _studentList) {
-            if (student._firstName.equals(arrayFIO[1])
-                    && student._lastName.equals(arrayFIO[0])
-                    && student._patronymic.equals(arrayFIO[2])) {
-                    return student;
+        for (int i = 0; i < _studentList.size(); i++) {
+            if (_studentList.get(i)._firstName.equals(arrayFIO[1])
+                    && _studentList.get(i)._lastName.equals(arrayFIO[0])
+                    && _studentList.get(i)._patronymic.equals(arrayFIO[2])) {
+                return _studentList.get(i);
             }
         }
         return null;
+    }
+
+    public static Student sortArrayStudents() {
+        return null; // в разработке...
     }
 
     public void set_firstName(String _firstName) {

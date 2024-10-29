@@ -34,6 +34,7 @@ public class BeneficiaryStudent extends Student {
      * Средний балл - 2.1 |
      * Группа льготников - СВО
      */
+    
     public BeneficiaryStudent() {
         _firstName = "Иван";
         _lastName = "Иванов";

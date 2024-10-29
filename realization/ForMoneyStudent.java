@@ -43,4 +43,11 @@ public class ForMoneyStudent extends Student {
         _priceStudy = 0;
     }
 
+    public int get_priceStudy() {
+        return this._priceStudy;
+    }
+
+    public void set_priceStudy(int _priceStudy) {
+        this._priceStudy = _priceStudy;
+    }
 }
