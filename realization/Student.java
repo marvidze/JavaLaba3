@@ -161,14 +161,6 @@ public class Student implements Comparable<Student> {
         java.util.Collections.sort(_studentList);
     }
 
-    public static void coutListStudents() {
-        for (int i = 0; i < _studentList.size(); i++) {
-            System.out.println((i + 1) + ". " + _studentList.get(i).get_lastName()
-                    + " " + _studentList.get(i).get_firstName()
-                    + " " + _studentList.get(i).get_patronymic());
-        }
-    }
-
     public void set_firstName(String _firstName) {
         this._firstName = _firstName;
     }
@@ -209,4 +201,7 @@ public class Student implements Comparable<Student> {
         return _averageScore;
     }
 
+    public static ArrayList<Student> get_studentList() {
+        return _studentList;
+    }
 }
