@@ -1,6 +1,7 @@
 package realization;
 
-public class BeneficiaryStudent extends Student {
+
+public class BeneficiaryStudent extends Student{
     private String _preferentialGroup;
 
     /**

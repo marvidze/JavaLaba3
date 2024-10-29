@@ -3,7 +3,9 @@ package realization;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+import realization.Interfaces.IStudent;
+
+public class Student implements IStudent{
     protected String _firstName;
     protected String _lastName;
     protected String _patronymic;
@@ -171,5 +173,11 @@ public class Student {
 
     public void set_averageScore(double _averageScore) {
         this._averageScore = _averageScore;
+    }
+
+    @Override
+    public int get_priceStudy() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'get_priceStudy'");
     }
 }

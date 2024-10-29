@@ -1,5 +1,6 @@
 package realization;
 
+
 public class ForMoneyStudent extends Student {
     private int _priceStudy;
 

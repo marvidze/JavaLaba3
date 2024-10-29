@@ -5,6 +5,7 @@ import java.util.Scanner;
 import realization.BeneficiaryStudent;
 import realization.ForMoneyStudent;
 import realization.Student;
+import realization.Interfaces.IStudent;
 
 public class UI {
 
@@ -64,12 +65,14 @@ public class UI {
         boolean flag = true;
         System.out.println("Введите фио студента");
         String FIO = input();
+        IStudent student = Student.findStudent(FIO);
         if (Student.findStudent(FIO) instanceof Student) {
-            Student student = Student.findStudent(FIO);
+            ;
         } else if (Student.findStudent(FIO) instanceof ForMoneyStudent) {
-            ForMoneyStudent student = Student.findStudent(FIO);
+            student = (ForMoneyStudent)Student.findStudent(FIO);
+            var i = student.get_priceStudy();
         } else if (Student.findStudent(FIO) instanceof BeneficiaryStudent) {
-            BeneficiaryStudent student = Student.findStudent(FIO);
+            student = (BeneficiaryStudent)Student.findStudent(FIO);
         } else {
             System.out.println("Студент не найден");
             flag = false;
@@ -129,13 +132,13 @@ public class UI {
                     if (student instanceof ForMoneyStudent) {
                         System.out.println("Введите значение цены");
                         int priceStudy = Integer.parseInt(input());
-                        student.set_price(priceStudy);
+                        ((ForMoneyStudent) student).set_priceStudy(priceStudy);
                         System.out.println("Студент после изменений -> " + student);
                         break;
                     } else if (student instanceof BeneficiaryStudent) {
                         System.out.println("Введите тип льготы");
                         String preferentialGroup = input();
-                        student.set_preferentialGroup(preferentialGroup);
+                        ((BeneficiaryStudent) student).set_preferentialGroup(preferentialGroup);
                         System.out.println("Студент после изменений -> " + student);
                         break;
                     } else {
@@ -182,7 +185,7 @@ public class UI {
                     printSortedStudentList();
                     break;
                 case "5":
-                    // searchStudent();
+                    searchStudent();
                     break;
                 case "6":
                     flag = false;
