@@ -45,7 +45,7 @@ public abstract class Student implements Comparable<Student> {
         _lastName = "Иванов";
         _patronymic = "Иванович";
         _attendance = 0;
-        _averageScore = 0;
+        _averageScore = 999;
     };
 
     /**
